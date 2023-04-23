@@ -1,0 +1,14 @@
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\bin\Debug\net6.0\PCStore.Domain.deps.json
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\bin\Debug\net6.0\PCStore.Domain.runtimeconfig.json
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\bin\Debug\net6.0\PCStore.Domain.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\bin\Debug\net6.0\PCStore.Domain.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.AssemblyInfoInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.AssemblyInfo.cs
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\refint\PCStore.Domain.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\PCStore.Domain.genruntimeconfig.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Domain\obj\Debug\net6.0\ref\PCStore.Domain.dll

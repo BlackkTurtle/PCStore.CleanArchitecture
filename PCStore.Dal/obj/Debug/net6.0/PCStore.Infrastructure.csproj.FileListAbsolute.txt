@@ -1,0 +1,17 @@
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.AssemblyInfo.cs
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Infrastructure.deps.json
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Infrastructure.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Infrastructure.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Application.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Domain.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Application.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\bin\Debug\net6.0\PCStore.Domain.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.csproj.CopyComplete
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\refint\PCStore.Infrastructure.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\PCStore.Infrastructure.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Dal\obj\Debug\net6.0\ref\PCStore.Infrastructure.dll

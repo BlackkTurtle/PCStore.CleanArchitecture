@@ -1,0 +1,15 @@
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\bin\Debug\net6.0\PCStore.Application.deps.json
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\bin\Debug\net6.0\PCStore.Application.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\bin\Debug\net6.0\PCStore.Application.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\bin\Debug\net6.0\PCStore.Domain.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\bin\Debug\net6.0\PCStore.Domain.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.AssemblyInfoInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.AssemblyInfo.cs
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.csproj.CopyComplete
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\refint\PCStore.Application.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\PCStore.Application.pdb
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.Application\obj\Debug\net6.0\ref\PCStore.Application.dll
