@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using PCStore.Domain.PCStoreEntities;
 
 namespace PCStore.Infrastructure.Identity
-{
+{/*
     public class IdentityService : IIdentityService
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -67,5 +67,5 @@ namespace PCStore.Infrastructure.Identity
             var result = await _userManager.IsInRoleAsync(user, role);
             return result;
         }
-    }
+    }*/
 }

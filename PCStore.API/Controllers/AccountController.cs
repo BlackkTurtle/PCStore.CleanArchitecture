@@ -21,7 +21,7 @@ namespace PCStore.API.Controllers
         {
             _identityService = identityService;
         }
-
+        /*
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
@@ -74,6 +74,6 @@ namespace PCStore.API.Controllers
         {
             await _identityService.SignOutAsync();
             return Ok();
-        }
+        }*/
     }
 }

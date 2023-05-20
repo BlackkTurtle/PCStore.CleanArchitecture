@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PCStore.Domain.PCStoreEntities;
 
 namespace PCStore.Infrastructure.PCStoreDataBaseContext;
 
-public partial class PcstoreContext : DbContext
+public partial class PcstoreContext : IdentityDbContext<User,Role,int>
 {
     public PcstoreContext()
     {
@@ -29,8 +31,6 @@ public partial class PcstoreContext : DbContext
     public virtual DbSet<Status> Statuses { get; set; }
 
     public virtual DbSet<Types> Types { get; set; }
-
-    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q05O5DB;Initial Catalog=PCStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -143,19 +143,14 @@ public partial class PcstoreContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC03247C97");
-
-            entity.HasIndex(e => e.Phone, "UQ__Users__5C7E359EB0A88F25").IsUnique();
+            entity.HasIndex(e => e.PhoneNumber, "UQ__Users__5C7E359EB0A88F25").IsUnique();
 
             entity.HasIndex(e => e.Email, "UQ__Users__A9D105349C8F07FF").IsUnique();
 
-            entity.Property(e => e.UserId).HasColumnName("UserID");
-            entity.Property(e => e.Password).HasMaxLength(30);
             entity.Property(e => e.Email).HasMaxLength(30);
             entity.Property(e => e.Father).HasMaxLength(30);
             entity.Property(e => e.FirstName).HasMaxLength(30);
             entity.Property(e => e.LastName).HasMaxLength(30);
-            entity.Property(e => e.Phone).HasMaxLength(13);
         });
 
         OnModelCreatingPartial(modelBuilder);

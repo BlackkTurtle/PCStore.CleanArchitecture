@@ -77,3 +77,4 @@ C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.API\obj\Debug\net6.0\PCStore.API.pdb
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.API\obj\Debug\net6.0\PCStore.API.genruntimeconfig.cache
 C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.API\obj\Debug\net6.0\ref\PCStore.API.dll
+C:\Users\user\OneDrive\Рабочий стол\ІФТКН\2 курс\C#\PCStore.CleanArchitecture\PCStore.API\obj\Debug\net6.0\PCStore.API.MvcApplicationPartsAssemblyInfo.cs

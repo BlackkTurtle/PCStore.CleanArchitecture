@@ -1,28 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 
 namespace PCStore.Domain.PCStoreEntities;
 
-public partial class User
+public partial class User:IdentityUser<int>
 {
     public User()
     {
         Comments = new HashSet<Comment>();
         Orders = new HashSet<Order>();
     }
-    public int UserId { get; set; }
-
-    public string Password { get; set; } = null!;
 
     public string FirstName { get; set; } = null!;
 
     public string LastName { get; set; } = null!;
 
     public string? Father { get; set; }
-
-    public string Phone { get; set; } = null!;
-
-    public string Email { get; set; } = null!;
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
 

@@ -9,7 +9,7 @@ using PCStore.Domain.PCStoreEntities;
 namespace PCStore.Infrastructure.Identity
 {
     public interface IIdentityService
-    {
+    {/*
         public Task<IdentityResult> CreateUserAsync(string userName, string email, string password);
 
         public Task<SignInResult> SignInAsync(string userName, string password, bool rememberMe);
@@ -24,6 +24,6 @@ namespace PCStore.Infrastructure.Identity
 
         public Task<IdentityResult> RemoveUserFromRoleAsync(ApplicationUser user, string role);
 
-        public Task<bool> UserIsInRoleAsync(ApplicationUser user, string role);
+        public Task<bool> UserIsInRoleAsync(ApplicationUser user, string role);*/
     }
 }

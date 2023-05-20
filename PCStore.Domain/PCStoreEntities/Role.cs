@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace PCStore.Domain.PCStoreEntities
 {
-    public class ApplicationUser : IdentityUser
+    public class Role:IdentityRole<int>
     {
-        public string FullName { get; set; }
+        public string UserRole { get; set; } = null!;
     }
 }

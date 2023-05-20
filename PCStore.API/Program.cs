@@ -23,10 +23,6 @@ builder.Services.AddDbContext<PcstoreContext>(options =>
     string connectionString = builder.Configuration.GetConnectionString("MSSQLConnection");
 });
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<PcstoreContext>()
-                .AddDefaultTokenProviders();
-
 
 builder.Services.AddScoped<ITypesService, TypesService>();
 builder.Services.AddScoped<IBrandsService, BrandService>();
@@ -36,8 +32,6 @@ builder.Services.AddScoped<IPartOrdersService, PartOrdersService>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddScoped<IStatusesService, StatusesService>();
 builder.Services.AddScoped<IUsersService, UsersService>();
-
-builder.Services.AddScoped<IIdentityService, IdentityService>();
 
 builder.Services.AddScoped<ITypesRepository, TypesRepository>();
 builder.Services.AddScoped<IBrandsRepository, BrandsRepository>();
