@@ -1,6 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.CodeDom.Compiler;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using PCStore.API.Models;
 using PCStore.Application.Services.Contracts;
 using PCStore.Domain.PCStoreEntities;
+using PCStore.Infrastructure.PCStoreDataBaseContext;
 
 namespace PCStore.API.Controllers
 {
@@ -10,12 +18,57 @@ namespace PCStore.API.Controllers
     {
         private readonly ILogger<UsersController> _logger;
         private IUsersService usersservice;
+        private IConfiguration _config;
+        private PcstoreContext context;
         public UsersController(ILogger<UsersController> logger,
-            IUsersService ado_unitofwork)
+            IUsersService ado_unitofwork,
+            IConfiguration config,PcstoreContext context)
         {
             _logger = logger;
             usersservice = ado_unitofwork;
+            _config = config;
+            this.context = context;
         }
+        [AllowAnonymous]
+        [HttpPost("/GetToken")]
+        public IActionResult Login([FromBody] UserLogin userLogin)
+        {
+            var user = Authenticate(userLogin);
+            if (user != null)
+            {
+                var token = Generate(user);
+                return Ok(token);
+            }
+            return NotFound("User not found!");
+        }
+
+        private string Generate(User user)
+        {
+            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"));
+            var credentials=new SigningCredentials(securitykey,SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier,user.UserName),
+                new Claim(ClaimTypes.Email,user.Email),
+                new Claim(ClaimTypes.Surname,user.LastName),
+                new Claim(ClaimTypes.GivenName,user.FirstName),
+                new Claim(ClaimTypes.OtherPhone,user.Phone),
+                new Claim(ClaimTypes.Role,user.Role)
+            };
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"],claims,expires:DateTime.Now.AddHours(1),signingCredentials:credentials);
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        private User Authenticate(UserLogin userLogin)
+        {
+            var currentUser = context.Users.FirstOrDefault(u => u.UserName == userLogin.UserName&&u.Password==userLogin.Password);
+            if (currentUser != null)
+            {
+                return currentUser;
+            }
+            return null;
+        }
+
+        [AllowAnonymous]
         [HttpGet("Phone/{Phone}")]
         public async Task<ActionResult<User>> GetUserByPhoneAsync(string Phone)
         {
@@ -32,7 +85,7 @@ namespace PCStore.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "вот так вот!");
             }
         }
-
+        [AllowAnonymous]
         [HttpGet("Email/{Email}")]
         public async Task<ActionResult<User>> GetUserByEmailAsync(string Email)
         {
@@ -49,7 +102,7 @@ namespace PCStore.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "вот так вот!");
             }
         }
-        //GET: api/events/Id
+        [AllowAnonymous]
         [HttpGet("id/{id}")]
         public async Task<ActionResult<User>> GetUserByIdAsync(int id)
         {
@@ -66,7 +119,6 @@ namespace PCStore.API.Controllers
                     _logger.LogInformation($"Отримали User з бази даних!");
                     return Ok(result);
                 }
-                await usersservice.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -75,7 +127,7 @@ namespace PCStore.API.Controllers
             }
         }
 
-        //POST: api/events
+        /*[AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult> PostUserAsync([FromBody] User fulluser)
         {
@@ -93,12 +145,14 @@ namespace PCStore.API.Controllers
                 }
                 var user = new User()
                 {
+                    UserName=fulluser.UserName,
                     Password = fulluser.Password,
                     Email = fulluser.Email,
                     FirstName = fulluser.FirstName,
                     LastName=fulluser.LastName,
                     Father = fulluser.Father,
-                    Phone = fulluser.Phone
+                    Phone = fulluser.Phone,
+                    Role=fulluser.Role
                 };
                 await usersservice.AddAsync(user);
                 await usersservice.SaveChangesAsync();
@@ -109,9 +163,9 @@ namespace PCStore.API.Controllers
                 _logger.LogError($"Транзакція сфейлилась! Щось пішло не так у методі PostUserAsync - {ex.Message}");
                 return StatusCode(StatusCodes.Status500InternalServerError, "вот так вот!");
             }
-        }
+        }*/
 
-        //POST: api/events/id
+        [AllowAnonymous]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateUserAsync(int id, [FromBody] User updatedUser)
         {
@@ -135,6 +189,7 @@ namespace PCStore.API.Controllers
                 UserEntity.Father = updatedUser.Father;
                 UserEntity.Phone = updatedUser.Phone;
                 UserEntity.Email = updatedUser.Email;
+                UserEntity.Role= updatedUser.Role;
 
                 await usersservice.SaveChangesAsync();
                 return StatusCode(StatusCodes.Status204NoContent);
@@ -146,7 +201,7 @@ namespace PCStore.API.Controllers
             }
         }
 
-        //GET: api/events/Id
+        [AllowAnonymous]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUserByIdAsync(int id)
         {
