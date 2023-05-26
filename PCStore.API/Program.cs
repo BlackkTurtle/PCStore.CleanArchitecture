@@ -9,6 +9,9 @@ using System.Text;
 using PCStore.API.Models;
 using PCStore.Application.Contracts;
 using PCStore.Infrastructure.Services;
+using PCStore.Infrastructure.DbSettings;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -36,7 +39,9 @@ builder.Services.AddDbContext<PcstoreContext>(options =>
     string ?connectionString = builder.Configuration.GetConnectionString("MSSQLConnection");
     options.UseSqlServer(connectionString,b=>b.MigrationsAssembly("PCStore.API"));
 });
-
+builder.Services.Configure<UserDbSettings>(builder.Configuration.GetSection(nameof(UserDbSettings)));
+builder.Services.AddSingleton<IUsersDbSettings>(u => u.GetRequiredService<IOptions<UserDbSettings>>().Value);
+builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("UsersDataBaseSettings:ConnectionStrings")));
 
 builder.Services.AddScoped<ITypesService, TypesService>();
 builder.Services.AddScoped<IBrandsService, BrandsService>();
@@ -45,6 +50,7 @@ builder.Services.AddScoped<IOrdersService, OrdersService>();
 builder.Services.AddScoped<IPartOrdersService, PartOrdersService>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddScoped<IStatusesService, StatusesService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<UserLogin>();
 
 builder.Services.AddScoped<IFullProductService, FullProductService>();
