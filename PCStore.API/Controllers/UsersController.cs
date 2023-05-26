@@ -58,8 +58,12 @@ namespace PCStore.API.Controllers
             var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"],claims,expires:DateTime.Now.AddHours(1),signingCredentials:credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-        private async Task<User> Authenticate(UserLogin userLogin)
+        private async Task<User?> Authenticate(UserLogin userLogin)
         {
+            if (userLogin.UserName==null || userLogin.Password == null)
+            {
+                return null;
+            }
             var currentUser = usersservice.GetByUserNameAndPassword(userLogin.UserName,userLogin.Password);
             if (currentUser != null)
             {

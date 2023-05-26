@@ -11,7 +11,7 @@ public class StatusesService : GenericService<Status>, IStatusesService
     {
     }
 
-    public override async Task<Status> GetCompleteEntityAsync(int id)
+    public override Task<Status> GetCompleteEntityAsync(int id)
     {
         throw new NotImplementedException();
     }

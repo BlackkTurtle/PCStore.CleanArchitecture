@@ -16,7 +16,7 @@ public partial class User
     [BsonElement("UserName")]
     public string UserName { get; set; }=null!;
     [BsonElement("Password")]
-    public string? Password { get; set; }
+    public string Password { get; set; } = null!;
     [BsonElement("FirstName")]
     public string FirstName { get; set; } = null!;
     [BsonElement("LastName")]
