@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PCStore.API.Models;
-using PCStore.Application.Services.Contracts;
 using PCStore.Domain.PCStoreEntities;
 using PCStore.Infrastructure.PCStoreDataBaseContext;
 
@@ -15,7 +14,7 @@ namespace PCStore.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
-    {
+    {/*
         private readonly ILogger<UsersController> _logger;
         private IUsersService usersservice;
         private IConfiguration _config;
@@ -127,43 +126,6 @@ namespace PCStore.API.Controllers
             }
         }
 
-        /*[AllowAnonymous]
-        [HttpPost]
-        public async Task<ActionResult> PostUserAsync([FromBody] User fulluser)
-        {
-            try
-            {
-                if (fulluser == null)
-                {
-                    _logger.LogInformation($"Ми отримали пустий json зі сторони клієнта");
-                    return BadRequest("Обєкт User є null");
-                }
-                if (!ModelState.IsValid)
-                {
-                    _logger.LogInformation($"Ми отримали некоректний json зі сторони клієнта");
-                    return BadRequest("Обєкт User є некоректним");
-                }
-                var user = new User()
-                {
-                    UserName=fulluser.UserName,
-                    Password = fulluser.Password,
-                    Email = fulluser.Email,
-                    FirstName = fulluser.FirstName,
-                    LastName=fulluser.LastName,
-                    Father = fulluser.Father,
-                    Phone = fulluser.Phone,
-                    Role=fulluser.Role
-                };
-                await usersservice.AddAsync(user);
-                await usersservice.SaveChangesAsync();
-                return StatusCode(StatusCodes.Status201Created);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Транзакція сфейлилась! Щось пішло не так у методі PostUserAsync - {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "вот так вот!");
-            }
-        }*/
 
         [AllowAnonymous]
         [HttpPut("{id}")]
@@ -215,6 +177,6 @@ namespace PCStore.API.Controllers
                 _logger.LogError($"Транзакція сфейлилась! Щось пішло не так у методі DeleteUserByIdAsync() - {ex.Message}");
                 return StatusCode(StatusCodes.Status500InternalServerError, "вот так вот!");
             }
-        }
+        }*/
     }
 }

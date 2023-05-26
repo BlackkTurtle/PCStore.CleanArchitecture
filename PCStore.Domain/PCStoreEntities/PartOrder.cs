@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace PCStore.Domain.PCStoreEntities;
 
-public partial class PartOrder
+public class PartOrder
 {
     public int PorderId { get; set; }
 

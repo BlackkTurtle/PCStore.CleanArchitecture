@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PCStore.Application.Services.Contracts;
+using PCStore.Application.Contracts;
 using PCStore.Domain.PCStoreEntities;
 
 namespace PCStore.API.Controllers

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCStore.Domain.PCStoreEntities;
 
-public partial class Status
+public class Status
 {
     public Status()
     {

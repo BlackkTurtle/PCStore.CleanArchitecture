@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCStore.Domain.PCStoreEntities;
 
-public partial class Comment
+public class Comment
 {
     public int CommentId { get; set; }
 
@@ -18,6 +18,4 @@ public partial class Comment
     public string? Comment1 { get; set; }
 
     public virtual Product ArticleNavigation { get; set; } = null!;
-
-    public virtual User User { get; set; } = null!;
 }

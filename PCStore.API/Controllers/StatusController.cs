@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using PCStore.Application.Services.Contracts;
+using PCStore.Application.Contracts;
 using PCStore.Domain.PCStoreEntities;
 
 namespace PCStore.API.Controllers

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PCStore.Domain.PCStoreEntities;
 
-public partial class Order
+public class Order
 {
     public Order()
     {
@@ -22,6 +22,4 @@ public partial class Order
     public virtual ICollection<PartOrder> PartOrders { get; } = new List<PartOrder>();
 
     public virtual Status Status { get; set; } = null!;
-
-    public virtual User User { get; set; } = null!;
 }

@@ -29,10 +29,9 @@ public partial class PcstoreContext : DbContext
     public virtual DbSet<Status> Statuses { get; set; }
 
     public virtual DbSet<Types> Types { get; set; }
-    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q05O5DB;Initial Catalog=PCStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q05O5DB;Initial Catalog=PCStoreCleanArchitecture;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -59,11 +58,6 @@ public partial class PcstoreContext : DbContext
                 .HasForeignKey(d => d.Article)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Comments_Products");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Comments)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Comments_Users");
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -82,11 +76,6 @@ public partial class PcstoreContext : DbContext
                 .HasForeignKey(d => d.StatusId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orders_Statuses");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Orders_Users");
         });
 
         modelBuilder.Entity<PartOrder>(entity =>
@@ -138,25 +127,6 @@ public partial class PcstoreContext : DbContext
         modelBuilder.Entity<Types>(entity =>
         {
             entity.Property(e => e.TypeName).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC03247C97");
-
-            entity.HasIndex(e => e.Phone, "UQ__Users__5C7E359EB0A88F25").IsUnique();
-
-            entity.HasIndex(e => e.Email, "UQ__Users__A9D105349C8F07FF").IsUnique();
-            entity.Property(e => e.UserName).HasMaxLength(50);
-
-            entity.Property(e => e.UserId).HasColumnName("UserID");
-            entity.Property(e => e.Password).HasMaxLength(30);
-            entity.Property(e => e.Email).HasMaxLength(30);
-            entity.Property(e => e.Father).HasMaxLength(30);
-            entity.Property(e => e.FirstName).HasMaxLength(30);
-            entity.Property(e => e.LastName).HasMaxLength(30);
-            entity.Property(e => e.Phone).HasMaxLength(13);
-            entity.Property(e => e.Role).HasMaxLength(30);
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,8 +1,4 @@
-using PCStore.Application.Services.Contracts;
-using PCStore.Application.Services;
-using PCStore.Domain.Repositories;
 using PCStore.Infrastructure.PCStoreDataBaseContext;
-using PCStore.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using PCStore.Domain.PCStoreEntities;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +6,9 @@ using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using PCStore.API.Models;
+using PCStore.Application.Contracts;
+using PCStore.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -35,28 +34,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddDbContext<PcstoreContext>(options =>
 {
     string ?connectionString = builder.Configuration.GetConnectionString("MSSQLConnection");
-    options.UseSqlServer(connectionString);
+    options.UseSqlServer(connectionString,b=>b.MigrationsAssembly("PCStore.API"));
 });
 
 
 builder.Services.AddScoped<ITypesService, TypesService>();
-builder.Services.AddScoped<IBrandsService, BrandService>();
-builder.Services.AddScoped<ICommentsService, CommentsService>();
+builder.Services.AddScoped<IBrandsService, BrandsService>();
+builder.Services.AddScoped<ICommentsService, CommentService>();
 builder.Services.AddScoped<IOrdersService, OrdersService>();
 builder.Services.AddScoped<IPartOrdersService, PartOrdersService>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddScoped<IStatusesService, StatusesService>();
-builder.Services.AddScoped<IUsersService, UsersService>();
-
-builder.Services.AddScoped<ITypesRepository, TypesRepository>();
-builder.Services.AddScoped<IBrandsRepository, BrandsRepository>();
-builder.Services.AddScoped<ICommentsRepository, CommentsRepository>();
-builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
-builder.Services.AddScoped<IPartOrdersRepository, PartOrdersRepository>();
-builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
-builder.Services.AddScoped<IStatusesRepository, StatusesRepository>();
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<UserLogin>();
 
 builder.Services.AddScoped<IFullProductService, FullProductService>();
 
