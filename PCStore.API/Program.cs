@@ -12,6 +12,7 @@ using PCStore.Infrastructure.Services;
 using PCStore.Infrastructure.DbSettings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -52,6 +53,7 @@ builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddScoped<IStatusesService, StatusesService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<UserLogin>();
+builder.Services.AddMediatR(typeof(PCStoreMediatRAssembly).Assembly);
 
 builder.Services.AddScoped<IFullProductService, FullProductService>();
 

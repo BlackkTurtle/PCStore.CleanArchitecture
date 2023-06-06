@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using PCStore.Application.Brands.Queries;
 using PCStore.Application.Contracts;
 using PCStore.Domain.PCStoreEntities;
 
@@ -12,12 +14,13 @@ namespace PCStore.API.Controllers
     public class BrandController : ControllerBase
     {
         private readonly ILogger<BrandController> _logger;
-        private IBrandsService brandsservice;
+        private readonly IMediator mediator;
+
         public BrandController(ILogger<BrandController> logger,
-            IBrandsService service)
+            IMediator mediator)
         {
             _logger = logger;
-            brandsservice = service;
+            this.mediator = mediator;
         }
 
         //GET: api/events
@@ -26,7 +29,7 @@ namespace PCStore.API.Controllers
         {
             try
             {
-                var results = await brandsservice.GetAllAsync();
+                var results = await mediator.Send(new GetAllBrandQuery());
                 _logger.LogInformation($"Отримали всі Brands з бази даних!");
                 return Ok(results);
             }

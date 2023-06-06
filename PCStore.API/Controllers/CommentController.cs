@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using PCStore.Application.Comments.Commands;
+using PCStore.Application.Comments.Queries;
 using PCStore.Application.Contracts;
 using PCStore.Domain.PCStoreEntities;
 
@@ -12,12 +15,13 @@ namespace PCStore.API.Controllers
     public class CommentController : ControllerBase
     {
         private readonly ILogger<CommentController> _logger;
-        private ICommentsService commentsservice;
+        private readonly IMediator mediator;
+
         public CommentController(ILogger<CommentController> logger,
-            ICommentsService service)
+            IMediator mediator)
         {
             _logger = logger;
-            commentsservice = service;
+            this.mediator = mediator;
         }
 
         [HttpGet("{article}")]
@@ -25,7 +29,7 @@ namespace PCStore.API.Controllers
         {
             try
             {
-                var result = await commentsservice.GetAllCommentsByArticleAsync(article);
+                var result = await mediator.Send(new GetAllCommentsByArticleQuery(article));
                 if (result == null)
                 {
                     _logger.LogInformation($"Comment із article: {article}, не був знайдейний у базі даних");
@@ -67,8 +71,7 @@ namespace PCStore.API.Controllers
                     CommentDate = DateTime.Now,
                     Comment1 =fullcomment.Comment1
                 };
-                await commentsservice.AddAsync(comment);
-                await commentsservice.SaveChangesAsync();
+                await mediator.Send(new PostCommentCommand(comment));
                 return StatusCode(StatusCodes.Status201Created);
             }
             catch (Exception ex)
@@ -90,19 +93,7 @@ namespace PCStore.API.Controllers
                     return BadRequest("Comment object is null");
                 }
 
-                var commentEntity = await commentsservice.GetByIdAsync(id);
-                if (commentEntity == null)
-                {
-                    _logger.LogInformation($"Comment with ID: {id} was not found in the database");
-                    return NotFound();
-                }
-
-                // Update only the specific properties of the comment entity
-                commentEntity.Article = updatedComment.Article;
-                commentEntity.Stars = updatedComment.Stars;
-                commentEntity.UserId = updatedComment.UserId;
-                commentEntity.Comment1 = updatedComment.Comment1;
-                await commentsservice.SaveChangesAsync();
+                await mediator.Send(new UpdateCommentCommand(id,updatedComment));
                 return StatusCode(StatusCodes.Status204NoContent);
             }
             catch (Exception ex)
@@ -119,7 +110,7 @@ namespace PCStore.API.Controllers
         {
             try
             {
-                await commentsservice.DeleteByIdAsync(id);
+                await mediator.Send(new DeleteCommentCommand(id));
                 return NoContent();
             }
             catch (Exception ex)
